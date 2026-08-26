@@ -1,0 +1,6 @@
+Role,Scene,What is in the clip,What is NOT in the clip,Why
+Reference,Outdoor,"Empty sky (clear, cloudy, sunset, overcast)","Birds, planes, text, people",Before state for sky birds
+Target,Outdoor,Same kind of sky WITH the bird flying / gliding,"Extra animals, logos",After state for sky birds
+Reference,Indoor,"Empty or almost-empty house room, ideally with a window","People, pets, birds",Before state for indoor birds
+Target,Indoor,"Same room WITH the bird on sofa, lamp, sill, or flying across","People, other animals","After state so the bird is IN the house, not outside"
+Extra variety,Both,"Living room, bedroom, kitchen, hallway; day and night","Watermarks, heavy camera shake",Stops the LoRA from only working on one room / one sky
