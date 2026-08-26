@@ -1,0 +1,8 @@
+Rule,Detail
+Pairing,Each reference clip has a matching target clip (empty scene -> scene with bird)
+Match,Reference and target must have the same length and resolution
+Split domains,Keep indoor pairs and outdoor pairs SEPARATE
+Skip,"People, text, watermarks, other animals (unless that is the bird you want)"
+Camera,Prefer locked-off shots or slow pans
+Start size,"About 20-40 clean pairs per domain (sky, then house) beats hundreds of messy clips"
+Indoor targets,"True house-interior bird clips are rare. Use cage/pet parrot clips, film a pet bird, or composite a bird onto empty rooms"
