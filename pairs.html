@@ -7,92 +7,218 @@ a{color:#7ec8ff;word-break:break-all}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 video{width:100%;border-radius:8px;background:#000}
 h1{margin:0 0 8px} .sub{color:#9db0c6;margin:0 0 20px}
+h2{font-size:1.1em;margin:0 0 8px}
 @media(max-width:800px){.grid{grid-template-columns:1fr}}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+.stat{background:#1a2330;border:1px solid #2c3a4d;border-radius:8px;padding:8px 16px}
+.stat .n{font-size:1.6em;font-weight:bold;color:#7ec8ff}
+.stat .l{color:#9db0c6;font-size:0.85em}
 </style></head><body>
 <h1>Bird IC-LoRA pairs (sky)</h1>
-<p class="sub">Left = with birds (target). Right = same camera, birds reduced (reference). 1920×1088, 192 frames, 24fps, 8.00s. LTX-2.5 dataset.json is in this repo.</p>
+<p class="sub">Left = with birds (target). Right = same camera, birds reduced via temporal median (reference). Frame-by-frame comparison videos included.</p>
+<div class="stats"><div class="stat"><div class="n">30</div><div class="l">Total pairs</div></div><div class="stat"><div class="n">12</div><div class="l">Original (Mixkit/Pexels)</div></div><div class="stat"><div class="n">18</div><div class="l">New (Pexels API + median)</div></div></div>
 <div class="card"><h2>Seagulls flying against the wind</h2>
-<p>Source: <a href="https://mixkit.co/free-stock-video/seagulls-flying-against-the-wind-15298/">https://mixkit.co/free-stock-video/seagulls-flying-against-the-wind-15298/</a></p>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/mixkit_15298.mp4"></video>
-<p><a href="clips/with_birds/mixkit_15298.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_15298.mp4"></video>
-<p><a href="clips/empty_sky/mixkit_15298.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Eagle gliding in a clear sky, bottom view</h2>
-<p>Source: <a href="https://mixkit.co/free-stock-video/eagle-gliding-in-a-clear-sky-bottom-view-1706/">https://mixkit.co/free-stock-video/eagle-gliding-in-a-clear-sky-bottom-view-1706/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/mixkit_15298.mp4"></video><p><a href="clips/with_birds/mixkit_15298.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_15298.mp4"></video><p><a href="clips/empty_sky/mixkit_15298.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Eagle gliding in a clear sky, bottom view</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/mixkit_1706.mp4"></video>
-<p><a href="clips/with_birds/mixkit_1706.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_1706.mp4"></video>
-<p><a href="clips/empty_sky/mixkit_1706.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Flock of seagulls in the sky</h2>
-<p>Source: <a href="https://mixkit.co/free-stock-video/flock-of-seagulls-in-the-sky-17978/">https://mixkit.co/free-stock-video/flock-of-seagulls-in-the-sky-17978/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/mixkit_1706.mp4"></video><p><a href="clips/with_birds/mixkit_1706.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_1706.mp4"></video><p><a href="clips/empty_sky/mixkit_1706.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Flock of seagulls in the sky</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/mixkit_17978.mp4"></video>
-<p><a href="clips/with_birds/mixkit_17978.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_17978.mp4"></video>
-<p><a href="clips/empty_sky/mixkit_17978.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Flock of seagulls flying at sunset</h2>
-<p>Source: <a href="https://mixkit.co/free-stock-video/flock-of-seagulls-flying-across-the-sky-with-a-sunset-45582/">https://mixkit.co/free-stock-video/flock-of-seagulls-flying-across-the-sky-with-a-sunset-45582/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/mixkit_17978.mp4"></video><p><a href="clips/with_birds/mixkit_17978.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_17978.mp4"></video><p><a href="clips/empty_sky/mixkit_17978.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Flock of seagulls flying at sunset</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/mixkit_45582.mp4"></video>
-<p><a href="clips/with_birds/mixkit_45582.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_45582.mp4"></video>
-<p><a href="clips/empty_sky/mixkit_45582.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Eagle flying high above the treetops</h2>
-<p>Source: <a href="https://mixkit.co/free-stock-video/eagle-flying-high-above-the-tree-tops-6825/">https://mixkit.co/free-stock-video/eagle-flying-high-above-the-tree-tops-6825/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/mixkit_45582.mp4"></video><p><a href="clips/with_birds/mixkit_45582.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_45582.mp4"></video><p><a href="clips/empty_sky/mixkit_45582.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Eagle flying high above the treetops</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/mixkit_6825.mp4"></video>
-<p><a href="clips/with_birds/mixkit_6825.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_6825.mp4"></video>
-<p><a href="clips/empty_sky/mixkit_6825.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Seagulls flying over the sky at sunset</h2>
-<p>Source: <a href="https://mixkit.co/free-stock-video/seagulls-flying-over-the-sky-at-sunset-9317/">https://mixkit.co/free-stock-video/seagulls-flying-over-the-sky-at-sunset-9317/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/mixkit_6825.mp4"></video><p><a href="clips/with_birds/mixkit_6825.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_6825.mp4"></video><p><a href="clips/empty_sky/mixkit_6825.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Seagulls flying over the sky at sunset</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/mixkit_9317.mp4"></video>
-<p><a href="clips/with_birds/mixkit_9317.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_9317.mp4"></video>
-<p><a href="clips/empty_sky/mixkit_9317.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Flocks of birds flying in the sky</h2>
-<p>Source: <a href="https://mixkit.co/free-stock-video/flocks-of-birds-flying-in-the-sky-9782/">https://mixkit.co/free-stock-video/flocks-of-birds-flying-in-the-sky-9782/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/mixkit_9317.mp4"></video><p><a href="clips/with_birds/mixkit_9317.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_9317.mp4"></video><p><a href="clips/empty_sky/mixkit_9317.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Flocks of birds flying in the sky</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/mixkit_9782.mp4"></video>
-<p><a href="clips/with_birds/mixkit_9782.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_9782.mp4"></video>
-<p><a href="clips/empty_sky/mixkit_9782.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Flock of birds flying in the sky</h2>
-<p>Source: <a href="https://www.pexels.com/video/flock-of-birds-flying-in-the-sky-14118342/">https://www.pexels.com/video/flock-of-birds-flying-in-the-sky-14118342/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/mixkit_9782.mp4"></video><p><a href="clips/with_birds/mixkit_9782.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/mixkit_9782.mp4"></video><p><a href="clips/empty_sky/mixkit_9782.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Flock of birds flying in the sky</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/pexels_14118342.mp4"></video>
-<p><a href="clips/with_birds/pexels_14118342.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_14118342.mp4"></video>
-<p><a href="clips/empty_sky/pexels_14118342.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Flock of birds soaring in blue sky (YOUR CLIP)</h2>
-<p>Source: <a href="https://www.pexels.com/video/flock-of-birds-soaring-in-blue-sky-31511859/">https://www.pexels.com/video/flock-of-birds-soaring-in-blue-sky-31511859/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_14118342.mp4"></video><p><a href="clips/with_birds/pexels_14118342.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_14118342.mp4"></video><p><a href="clips/empty_sky/pexels_14118342.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Flock of birds soaring in blue sky (YOUR CLIP)</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/pexels_31511859.mp4"></video>
-<p><a href="clips/with_birds/pexels_31511859.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_31511859.mp4"></video>
-<p><a href="clips/empty_sky/pexels_31511859.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Majestic seagulls soar against blue sky</h2>
-<p>Source: <a href="https://www.pexels.com/video/majestic-seagulls-soar-against-blue-sky-32169315/">https://www.pexels.com/video/majestic-seagulls-soar-against-blue-sky-32169315/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_31511859.mp4"></video><p><a href="clips/with_birds/pexels_31511859.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_31511859.mp4"></video><p><a href="clips/empty_sky/pexels_31511859.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Majestic seagulls soar against blue sky</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/pexels_32169315.mp4"></video>
-<p><a href="clips/with_birds/pexels_32169315.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_32169315.mp4"></video>
-<p><a href="clips/empty_sky/pexels_32169315.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Flock of birds soaring in clear blue sky</h2>
-<p>Source: <a href="https://www.pexels.com/video/flock-of-birds-soaring-in-clear-blue-sky-34711709/">https://www.pexels.com/video/flock-of-birds-soaring-in-clear-blue-sky-34711709/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_32169315.mp4"></video><p><a href="clips/with_birds/pexels_32169315.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_32169315.mp4"></video><p><a href="clips/empty_sky/pexels_32169315.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Flock of birds soaring in clear blue sky</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/pexels_34711709.mp4"></video>
-<p><a href="clips/with_birds/pexels_34711709.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_34711709.mp4"></video>
-<p><a href="clips/empty_sky/pexels_34711709.mp4">download</a></p></div>
-</div></div><div class="card"><h2>Flock of black birds flying in the sky</h2>
-<p>Source: <a href="https://www.pexels.com/video/flock-of-black-birds-flying-in-the-sky-5973753/">https://www.pexels.com/video/flock-of-black-birds-flying-in-the-sky-5973753/</a></p>
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_34711709.mp4"></video><p><a href="clips/with_birds/pexels_34711709.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_34711709.mp4"></video><p><a href="clips/empty_sky/pexels_34711709.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>Flock of black birds flying in the sky</h2>
 <div class="grid">
-<div><b>With birds</b><video controls src="clips/with_birds/pexels_5973753.mp4"></video>
-<p><a href="clips/with_birds/pexels_5973753.mp4">download</a></p></div>
-<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_5973753.mp4"></video>
-<p><a href="clips/empty_sky/pexels_5973753.mp4">download</a></p></div>
-</div></div></body></html>
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_5973753.mp4"></video><p><a href="clips/with_birds/pexels_5973753.mp4">download</a></p></div>
+<div><b>Empty-ish sky</b><video controls src="clips/empty_sky/pexels_5973753.mp4"></video><p><a href="clips/empty_sky/pexels_5973753.mp4">download</a></p></div>
+</div></div>
+<div class="card"><h2>birds flying (12654119)</h2>
+<p>Source: <a href="https://www.pexels.com/video/birds-flying-on-sky-12654119/">https://www.pexels.com/video/birds-flying-on-sky-12654119/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_12654119.mp4"></video><p><a href="clips/with_birds/pexels_12654119.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_12654119.mp4"></video><p><a href="clips/empty_sky/pexels_12654119.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_12654119_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (13456511)</h2>
+<p>Source: <a href="https://www.pexels.com/video/black-birds-flying-in-sky-13456511/">https://www.pexels.com/video/black-birds-flying-in-sky-13456511/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_13456511.mp4"></video><p><a href="clips/with_birds/pexels_13456511.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_13456511.mp4"></video><p><a href="clips/empty_sky/pexels_13456511.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_13456511_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (14601085)</h2>
+<p>Source: <a href="https://www.pexels.com/video/overcast-over-birds-flying-14601085/">https://www.pexels.com/video/overcast-over-birds-flying-14601085/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_14601085.mp4"></video><p><a href="clips/with_birds/pexels_14601085.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_14601085.mp4"></video><p><a href="clips/empty_sky/pexels_14601085.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_14601085_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (15633687)</h2>
+<p>Source: <a href="https://www.pexels.com/video/a-bird-flies-over-a-boat-in-the-ocean-15633687/">https://www.pexels.com/video/a-bird-flies-over-a-boat-in-the-ocean-15633687/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_15633687.mp4"></video><p><a href="clips/with_birds/pexels_15633687.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_15633687.mp4"></video><p><a href="clips/empty_sky/pexels_15633687.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_15633687_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (18281059)</h2>
+<p>Source: <a href="https://www.pexels.com/video/seagulls-flying-in-the-sky-18281059/">https://www.pexels.com/video/seagulls-flying-in-the-sky-18281059/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_18281059.mp4"></video><p><a href="clips/with_birds/pexels_18281059.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_18281059.mp4"></video><p><a href="clips/empty_sky/pexels_18281059.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_18281059_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (19178759)</h2>
+<p>Source: <a href="https://www.pexels.com/video/a-flock-of-birds-flying-over-the-ocean-19178759/">https://www.pexels.com/video/a-flock-of-birds-flying-over-the-ocean-19178759/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_19178759.mp4"></video><p><a href="clips/with_birds/pexels_19178759.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_19178759.mp4"></video><p><a href="clips/empty_sky/pexels_19178759.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_19178759_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (19768258)</h2>
+<p>Source: <a href="https://www.pexels.com/video/flying-seagulls-slow-motion-19768258/">https://www.pexels.com/video/flying-seagulls-slow-motion-19768258/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_19768258.mp4"></video><p><a href="clips/with_birds/pexels_19768258.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_19768258.mp4"></video><p><a href="clips/empty_sky/pexels_19768258.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_19768258_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (20682356)</h2>
+<p>Source: <a href="https://www.pexels.com/video/a-flock-of-birds-in-the-aesthetic-sky-20682356/">https://www.pexels.com/video/a-flock-of-birds-in-the-aesthetic-sky-20682356/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_20682356.mp4"></video><p><a href="clips/with_birds/pexels_20682356.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_20682356.mp4"></video><p><a href="clips/empty_sky/pexels_20682356.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_20682356_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (20683460)</h2>
+<p>Source: <a href="https://www.pexels.com/video/flock-of-birds-flying-in-the-blue-sky-20683460/">https://www.pexels.com/video/flock-of-birds-flying-in-the-blue-sky-20683460/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_20683460.mp4"></video><p><a href="clips/with_birds/pexels_20683460.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_20683460.mp4"></video><p><a href="clips/empty_sky/pexels_20683460.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_20683460_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (28077187)</h2>
+<p>Source: <a href="https://www.pexels.com/video/flying-seagulls-in-the-sky-28077187/">https://www.pexels.com/video/flying-seagulls-in-the-sky-28077187/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_28077187.mp4"></video><p><a href="clips/with_birds/pexels_28077187.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_28077187.mp4"></video><p><a href="clips/empty_sky/pexels_28077187.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_28077187_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (28429437)</h2>
+<p>Source: <a href="https://www.pexels.com/video/a-flock-of-birds-flying-in-the-sky-28429437/">https://www.pexels.com/video/a-flock-of-birds-flying-in-the-sky-28429437/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_28429437.mp4"></video><p><a href="clips/with_birds/pexels_28429437.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_28429437.mp4"></video><p><a href="clips/empty_sky/pexels_28429437.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_28429437_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (29704021)</h2>
+<p>Source: <a href="https://www.pexels.com/video/flock-of-pigeons-soaring-in-clear-sky-29704021/">https://www.pexels.com/video/flock-of-pigeons-soaring-in-clear-sky-29704021/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_29704021.mp4"></video><p><a href="clips/with_birds/pexels_29704021.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_29704021.mp4"></video><p><a href="clips/empty_sky/pexels_29704021.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_29704021_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (30795993)</h2>
+<p>Source: <a href="https://www.pexels.com/video/flock-of-seagulls-soaring-in-blue-sky-30795993/">https://www.pexels.com/video/flock-of-seagulls-soaring-in-blue-sky-30795993/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_30795993.mp4"></video><p><a href="clips/with_birds/pexels_30795993.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_30795993.mp4"></video><p><a href="clips/empty_sky/pexels_30795993.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_30795993_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (34760064)</h2>
+<p>Source: <a href="https://www.pexels.com/video/serene-ducks-in-flight-over-peaceful-water-34760064/">https://www.pexels.com/video/serene-ducks-in-flight-over-peaceful-water-34760064/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_34760064.mp4"></video><p><a href="clips/with_birds/pexels_34760064.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_34760064.mp4"></video><p><a href="clips/empty_sky/pexels_34760064.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_34760064_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (35046732)</h2>
+<p>Source: <a href="https://www.pexels.com/video/flock-of-seagulls-by-the-river-at-sunrise-35046732/">https://www.pexels.com/video/flock-of-seagulls-by-the-river-at-sunrise-35046732/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_35046732.mp4"></video><p><a href="clips/with_birds/pexels_35046732.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_35046732.mp4"></video><p><a href="clips/empty_sky/pexels_35046732.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_35046732_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (35332302)</h2>
+<p>Source: <a href="https://www.pexels.com/video/birds-migrating-in-v-formation-over-scenic-landscape-35332302/">https://www.pexels.com/video/birds-migrating-in-v-formation-over-scenic-landscape-35332302/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_35332302.mp4"></video><p><a href="clips/with_birds/pexels_35332302.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_35332302.mp4"></video><p><a href="clips/empty_sky/pexels_35332302.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_35332302_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (36102663)</h2>
+<p>Source: <a href="https://www.pexels.com/video/flock-of-birds-in-cloudy-winter-sky-36102663/">https://www.pexels.com/video/flock-of-birds-in-cloudy-winter-sky-36102663/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_36102663.mp4"></video><p><a href="clips/with_birds/pexels_36102663.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_36102663.mp4"></video><p><a href="clips/empty_sky/pexels_36102663.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_36102663_compare.mp4"></video></div>
+</div>
+<div class="card"><h2>birds flying (37480651)</h2>
+<p>Source: <a href="https://www.pexels.com/video/graceful-white-doves-flying-in-blue-sky-37480651/">https://www.pexels.com/video/graceful-white-doves-flying-in-blue-sky-37480651/</a></p>
+<div class="grid">
+<div><b>With birds</b><video controls src="clips/with_birds/pexels_37480651.mp4"></video><p><a href="clips/with_birds/pexels_37480651.mp4">download</a></p></div>
+<div><b>No birds (median)</b><video controls src="clips/empty_sky/pexels_37480651.mp4"></video><p><a href="clips/empty_sky/pexels_37480651.mp4">download</a></p></div>
+</div>
+<div style="margin-top:8px"><b>Frame-by-frame comparison</b><video controls src="compare/frame_by_frame/pexels_37480651_compare.mp4"></video></div>
+</div>
+</body></html>
