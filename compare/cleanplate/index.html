@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Clean Plate IC-LoRA: bird removal variants (mixkit_45582)</title>
+<style>
+:root{--bg:#0f1419;--card:#1a2330;--line:#2c3a4d;--text:#e8eef5;--muted:#9db0c6;--link:#7ec8ff}
+body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--text)}
+header{padding:20px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--(--bg));background:var(--bg);z-index:2}
+h1{margin:0 0 6px;font-size:22px}
+.sub{color:var(--muted);margin:0 0 8px;font-size:14px;max-width:980px}
+nav{padding-bottom:8px}
+nav a{color:var(--link);text-decoration:none;background:var(--card);padding:6px 10px;border-radius:8px;font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:20px 24px}
+h2{margin:0 0 4px;font-size:18px}
+.cfg{color:var(--muted);font-size:13px;margin:0 0 10px}
+a{color:var(--link);word-break:break-all}
+video,img{width:100%;border-radius:8px;background:#000;display:block}
+.frames{display:grid;gap:10px;margin-top:12px}
+.frames>div{background:#000;border-radius:8px;overflow:hidden}
+.frames b{display:block;padding:6px 10px;font-size:12px;color:var(--muted)}
+.note{color:var(--muted);font-size:13px;margin:8px 0 12px}
+.sheet{max-width:100%;border-radius:8px}
+</style></head><body>
+<header>
+<h1>Clean Plate IC-LoRA — bird removal test (mixkit_45582)</h1>
+<p class="sub">LTX-2.3 distilled + Clean Plate IC-LoRA. Source: <a href="https://mixkit.co/free-stock-video/flock-of-seagulls-flying-across-the-sky-with-a-sunset-45582/" target="_blank" rel="noopener">Flock of seagulls flying across the sky with a sunset (Mixkit 45582)</a>. Each variant is a side-by-side: <b>left</b> = Clean Plate output (birds removed), <b>right</b> = original (with birds). 1024×576, 193 frames @ 24fps (8s).</p>
+<nav><a href="../index.html">← Back to dataset</a> <a href="../compare.html">Inpaint comparisons</a></nav>
+</header>
+
+<div class="card">
+<h2>All variants at a glance</h2>
+<p class="cfg">Rows = variants, columns = frames at 0s / 2s / 4s / 6s / 8s. Left half of each frame = clean plate, right half = original.</p>
+<a href="mixkit_45582_all_variants_sheet.jpg"><img class="sheet" src="mixkit_45582_all_variants_sheet.jpg" alt="all variants sheet"/></a>
+</div>
+
+<div class="card" id="full_s42">
+<h2>1. Full two-stage · seed 42 · cond 1.0</h2>
+<p class="cfg">Recommended config: stage 1 (512×288) → stage 2 upscale + refine (1024×576). 8 denoising steps.</p>
+<video controls preload="metadata" src="videos/mixkit_45582_full_s42_compare.mp4"></video>
+<p class="note"><a href="videos/mixkit_45582_full_s42_compare.mp4">Download side-by-side video</a></p>
+<div class="frames"><div><b>Frame 0 (0.0s)</b><a href="frames/full_s42/pair_000.jpg"><img src="frames/full_s42/pair_000.jpg" alt="frame 0"/></a></div><div><b>Frame 48 (2.0s)</b><a href="frames/full_s42/pair_048.jpg"><img src="frames/full_s42/pair_048.jpg" alt="frame 48"/></a></div><div><b>Frame 96 (4.0s)</b><a href="frames/full_s42/pair_096.jpg"><img src="frames/full_s42/pair_096.jpg" alt="frame 96"/></a></div><div><b>Frame 144 (6.0s)</b><a href="frames/full_s42/pair_144.jpg"><img src="frames/full_s42/pair_144.jpg" alt="frame 144"/></a></div><div><b>Frame 191 (8.0s)</b><a href="frames/full_s42/pair_191.jpg"><img src="frames/full_s42/pair_191.jpg" alt="frame 191"/></a></div></div>
+</div>
+
+<div class="card" id="full_s7">
+<h2>2. Full two-stage · seed 7 · cond 1.0</h2>
+<p class="cfg">Same as #1 but different seed — tests stability of bird removal.</p>
+<video controls preload="metadata" src="videos/mixkit_45582_full_s7_compare.mp4"></video>
+<p class="note"><a href="videos/mixkit_45582_full_s7_compare.mp4">Download side-by-side video</a></p>
+<div class="frames"><div><b>Frame 0 (0.0s)</b><a href="frames/full_s7/pair_000.jpg"><img src="frames/full_s7/pair_000.jpg" alt="frame 0"/></a></div><div><b>Frame 48 (2.0s)</b><a href="frames/full_s7/pair_048.jpg"><img src="frames/full_s7/pair_048.jpg" alt="frame 48"/></a></div><div><b>Frame 96 (4.0s)</b><a href="frames/full_s7/pair_096.jpg"><img src="frames/full_s7/pair_096.jpg" alt="frame 96"/></a></div><div><b>Frame 144 (6.0s)</b><a href="frames/full_s7/pair_144.jpg"><img src="frames/full_s7/pair_144.jpg" alt="frame 144"/></a></div><div><b>Frame 191 (8.0s)</b><a href="frames/full_s7/pair_191.jpg"><img src="frames/full_s7/pair_191.jpg" alt="frame 191"/></a></div></div>
+</div>
+
+<div class="card" id="full_s42_c07">
+<h2>3. Full two-stage · seed 42 · cond 0.7</h2>
+<p class="cfg">Lower conditioning attention (0.7 vs 1.0) — gives the model more freedom to deviate from the reference.</p>
+<video controls preload="metadata" src="videos/mixkit_45582_full_s42_c07_compare.mp4"></video>
+<p class="note"><a href="videos/mixkit_45582_full_s42_c07_compare.mp4">Download side-by-side video</a></p>
+<div class="frames"><div><b>Frame 0 (0.0s)</b><a href="frames/full_s42_c07/pair_000.jpg"><img src="frames/full_s42_c07/pair_000.jpg" alt="frame 0"/></a></div><div><b>Frame 48 (2.0s)</b><a href="frames/full_s42_c07/pair_048.jpg"><img src="frames/full_s42_c07/pair_048.jpg" alt="frame 48"/></a></div><div><b>Frame 96 (4.0s)</b><a href="frames/full_s42_c07/pair_096.jpg"><img src="frames/full_s42_c07/pair_096.jpg" alt="frame 96"/></a></div><div><b>Frame 144 (6.0s)</b><a href="frames/full_s42_c07/pair_144.jpg"><img src="frames/full_s42_c07/pair_144.jpg" alt="frame 144"/></a></div><div><b>Frame 191 (8.0s)</b><a href="frames/full_s42_c07/pair_191.jpg"><img src="frames/full_s42_c07/pair_191.jpg" alt="frame 191"/></a></div></div>
+</div>
+
+<div class="card" id="skip_s42">
+<h2>4. Skip stage 2 · seed 42 · cond 1.0</h2>
+<p class="cfg">Stage 1 only (512×288), no upscale/refine — faster but lower resolution. Tests if stage 2 helps bird removal.</p>
+<video controls preload="metadata" src="videos/mixkit_45582_skip_s42_compare.mp4"></video>
+<p class="note"><a href="videos/mixkit_45582_skip_s42_compare.mp4">Download side-by-side video</a></p>
+<div class="frames"><div><b>Frame 0 (0.0s)</b><a href="frames/skip_s42/pair_000.jpg"><img src="frames/skip_s42/pair_000.jpg" alt="frame 0"/></a></div><div><b>Frame 48 (2.0s)</b><a href="frames/skip_s42/pair_048.jpg"><img src="frames/skip_s42/pair_048.jpg" alt="frame 48"/></a></div><div><b>Frame 96 (4.0s)</b><a href="frames/skip_s42/pair_096.jpg"><img src="frames/skip_s42/pair_096.jpg" alt="frame 96"/></a></div><div><b>Frame 144 (6.0s)</b><a href="frames/skip_s42/pair_144.jpg"><img src="frames/skip_s42/pair_144.jpg" alt="frame 144"/></a></div><div><b>Frame 191 (8.0s)</b><a href="frames/skip_s42/pair_191.jpg"><img src="frames/skip_s42/pair_191.jpg" alt="frame 191"/></a></div></div>
+</div>
+
+</body></html>
