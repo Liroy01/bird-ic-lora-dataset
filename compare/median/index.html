@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mixkit_45582 — Bird Removal (Temporal Median)</title>
+<style>
+  body { background: #0d0d0d; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 20px; }
+  h1 { font-size: 1.6em; margin-bottom: 4px; }
+  h2 { font-size: 1.2em; margin-top: 32px; color: #8ab4f8; }
+  .sub { color: #888; margin-bottom: 24px; }
+  .method-box { background: #1a1a2e; border: 1px solid #333; border-radius: 8px; padding: 16px 20px; margin-bottom: 24px; }
+  .method-box code { color: #c792ea; }
+  video { width: 100%; max-width: 1200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  img { width: 100%; max-width: 1200px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+  .note { background: #1e2a1e; border-left: 4px solid #4caf50; padding: 12px 16px; margin: 16px 0; border-radius: 4px; }
+  .warn { background: #2a2a1e; border-left: 4px solid #ffc107; padding: 12px 16px; margin: 16px 0; border-radius: 4px; }
+  a { color: #8ab4f8; }
+  .back-link { margin-bottom: 20px; }
+  .back-link a { text-decoration: none; color: #8ab4f8; }
+</style>
+</head>
+<body>
+
+<div class="back-link">
+  <a href="../../index.html">← Back to dataset</a>
+</div>
+
+<h1>mixkit_45582 — Bird Removal via Temporal Median Filtering</h1>
+<p class="sub">Best result obtained. Clean Plate and EditAnything v2 LoRAs both failed to remove birds. Temporal median filtering removes them perfectly.</p>
+
+<div class="note">
+  <strong>Method:</strong> For each pixel, compute the temporal median across all 192 frames.
+  Birds are transient (only occupy a pixel for a few frames), so the median gives the clean sky.
+  A per-frame difference mask identifies bird pixels, which are replaced with the median value
+  using a dilated, blurred mask for smooth edge blending.
+</div>
+
+<div class="warn">
+  <strong>Why LoRAs failed:</strong> Clean Plate LoRA is trained on people/vehicles, not birds.
+  EditAnything v2 LoRA requires ComfyUI + BFSnodes conditioning (role embedding + AdaLN) that the
+  standard <code>ICLoraPipeline</code> does not provide — the model just reproduced the input video
+  without applying the edit instruction, regardless of CFG, seed, or prompt format.
+</div>
+
+<h2>Side-by-side video (8 seconds, 1920×1088)</h2>
+<p>Left: original with birds. Right: temporal median result, no birds.</p>
+<video controls autoplay loop muted>
+  <source src="mixkit_45582_median_compare.mp4" type="video/mp4">
+</video>
+
+<h2>No-birds video (standalone)</h2>
+<video controls loop muted>
+  <source src="mixkit_45582_no_birds.mp4" type="video/mp4">
+</video>
+
+<h2>Frame sheet — 5 frames across 8 seconds</h2>
+<p>Top row: original (with birds). Bottom row: temporal median (no birds).</p>
+<img src="mixkit_45582_median_sheet.jpg" alt="Frame comparison sheet">
+
+<h2>Clean plate (temporal median image)</h2>
+<p>The per-pixel median across all 192 frames — a single static image of the sky with no birds.</p>
+<img src="mixkit_45582_median_plate.jpg" alt="Median clean plate">
+
+</body>
+</html>
