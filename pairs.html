@@ -31,15 +31,15 @@
 <body>
 <div class="back-link"><a href="index.html">← Back to dataset home</a></div>
 <h1>Bird IC-LoRA — Frame-by-Frame Comparison</h1>
-<p class="sub">12 original clips processed with LTX-2.5 distilled + ltx_edit_v3 IC-LoRA. Birds removed, frame-by-frame comparison.</p>
+<p class="sub">12 original clips processed with ProPainter (ICCV 2023) video inpainting. Birds removed, side-by-side + frame-by-frame comparison.</p>
 <div class="stats">
-  <div class="stat-card" style="border-color:#4caf50"><div class="num" style="color:#4caf50">12</div><div class="label">LTX-2.5 Processed</div></div>
+  <div class="stat-card" style="border-color:#4caf50"><div class="num" style="color:#4caf50">12</div><div class="label">ProPainter Processed</div></div>
   <div class="stat-card" style="border-color:#2196f3"><div class="num" style="color:#2196f3">15720</div><div class="label">Total Dataset Clips</div></div>
   <div class="stat-card" style="border-color:#ff9800"><div class="num" style="color:#ff9800">10639</div><div class="label">Bird Sky Clips</div></div>
 </div>
 <div class="note">
-  <strong>Method:</strong> LTX-2.5 distilled model + ltx_edit_v3 IC-LoRA with bird mask conditioning.<br>
-  The mask identifies bird regions via temporal median differencing. The model regenerates those regions as empty sky while preserving the background.
+  <strong>Method:</strong> ProPainter (ICCV 2023) — optical flow + transformer video inpainting.<br>
+  Bird mask computed via temporal median differencing (threshold=25, light dilation). ProPainter reconstructs masked regions using temporal context from neighboring frames. Much cleaner than LTX-2.5 — no ghosting artifacts.
 </div>
 <div class="card">
   <h2>Seagulls flying against the wind</h2>
