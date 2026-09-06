@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bird IC-LoRA — Before / After Pairs</title>
+<style>
+  body { background:#0d0d0d; color:#e6e6e6; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; margin:0; padding:24px; }
+  h1 { font-size:1.9em; margin:0 0 4px; }
+  .sub { color:#8a8a8a; margin-bottom:18px; }
+  .stats { display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 22px; }
+  .stat { background:#171728; border:1px solid #303048; border-radius:10px; padding:12px 20px; }
+  .stat .n { font-size:1.7em; font-weight:700; }
+  .stat .l { color:#8a8a8a; font-size:.85em; }
+  .note { background:#16241a; border-left:4px solid #4caf50; padding:12px 16px; border-radius:4px; margin-bottom:22px; line-height:1.5; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(560px,1fr)); gap:18px; }
+  .card { background:#171728; border:1px solid #303048; border-radius:12px; padding:12px; }
+  .card h2 { font-size:.95em; margin:0 0 8px; color:#8ab4f8; font-family:ui-monospace,monospace; }
+  .card video { width:100%; border-radius:8px; background:#000; display:block; }
+  .meta { color:#9a9a9a; font-size:.8em; margin-top:8px; line-height:1.4; }
+  a { color:#8ab4f8; }
+  ul.rest { columns:3; font-size:.85em; line-height:1.7; }
+  @media(max-width:900px) { .grid { grid-template-columns:1fr; } ul.rest { columns:1; } }
+</style>
+</head>
+<body>
+<div><a href="index.html">&larr; dataset home</a> · <a href="all-links.html">all source links</a></div>
+<h1>Before / After — bird removal pairs</h1>
+<p class="sub">Left half is the original clip. Right half is the same clip with birds removed, used as the LoRA's input plate.</p>
+
+<div class="stats">
+  <div class="stat"><div class="n" style="color:#4caf50">730</div><div class="l">Before/after pairs</div></div>
+  <div class="stat"><div class="n" style="color:#2196f3">300</div><div class="l">Playable on this page</div></div>
+  <div class="stat"><div class="n" style="color:#ff9800">960&times;544</div><div class="l">Pair resolution</div></div>
+  <div class="stat"><div class="n" style="color:#e91e63">49</div><div class="l">Frames per pair</div></div>
+</div>
+
+<div class="note">
+  <strong>How these were made:</strong> birds are located by differencing each frame against the clip's temporal median,
+  then <a href="https://github.com/sczhou/ProPainter">ProPainter</a> (ICCV 2023) reconstructs the covered region using
+  neighbouring frames. Clips where the camera moves enough to break the median estimate are rejected rather than
+  shipped as mush, which is why roughly half of all downloaded clips do not appear here.<br><br>
+  <strong>Direction:</strong> the LoRA is trained to <em>add</em> birds, so the "after" plate is the input and the
+  "before" clip is the target it must reproduce.
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>mixkit_15298</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/mixkit_15298.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>mixkit_1706</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/mixkit_1706.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across a clear blue sky, at mid distance, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>mixkit_17978</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/mixkit_17978.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, close to camera, wings clearly visible, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>mixkit_45582</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/mixkit_45582.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky, at mid distance, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>mixkit_9317</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/mixkit_9317.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>mixkit_9782</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/mixkit_9782.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10015853</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10015853.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_1005089</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_1005089.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10094486</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10094486.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10101180</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10101180.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10152745</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10152745.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky above a dark horizon, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10207542</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10207542.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10425612</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10425612.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10436069</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10436069.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10436072</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10436072.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across an overcast grey sky, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10476341</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10476341.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10526788</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10526788.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10554155</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10554155.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10603539</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10603539.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10701007</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10701007.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10715774</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10715774.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10723159</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10723159.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across a clear blue sky, at mid distance, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10743722</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10743722.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10785240</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10785240.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10835597</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10835597.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky, at mid distance, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10844907</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10844907.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10935613</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10935613.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_10968029</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_10968029.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_11267402</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_11267402.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_11499117</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_11499117.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_11736615</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_11736615.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_11781030</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_11781030.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_11836064</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_11836064.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_12255231</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_12255231.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_12266302</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_12266302.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_12630899</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_12630899.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_12654119</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_12654119.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_12721720</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_12721720.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_12767465</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_12767465.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_12873497</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_12873497.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_1293415</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_1293415.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_13001362</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_13001362.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_13010745</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_13010745.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_13044245</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_13044245.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_13198137</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_13198137.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_13309482</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_13309482.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_13311229</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_13311229.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_13505578</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_13505578.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_13747771</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_13747771.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14113403</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14113403.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14118342</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14118342.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14256391</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14256391.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14284311</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14284311.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14391286</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14391286.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14601085</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14601085.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14750149</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14750149.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14805441</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14805441.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14837147</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14837147.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_14873476</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_14873476.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15029481</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15029481.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15261198</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15261198.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15271119</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15271119.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15298012</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15298012.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15415877</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15415877.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15426507</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15426507.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, close to camera, wings clearly visible, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15543511</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15543511.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15633687</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15633687.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_1568756</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_1568756.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a warm red-tinted sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15776452</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15776452.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, close to camera, wings clearly visible, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_15819556</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_15819556.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_16143056</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_16143056.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_1618187</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_1618187.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_1655462</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_1655462.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_16699712</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_16699712.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_16762232</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_16762232.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_16879078</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_16879078.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_16884575</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_16884575.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_16961723</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_16961723.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17066089</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17066089.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17289439</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17289439.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17380174</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17380174.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17460313</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17460313.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17695359</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17695359.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, at mid distance, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17779701</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17779701.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a dark night sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17829765</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17829765.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17947690</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17947690.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17954941</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17954941.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17966986</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17966986.mp4"></video>
+    <div class="meta">BIRDFLOCK. 3 birds flying across a clear blue sky, close to camera, wings clearly visible, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_17999660</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_17999660.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_18028472</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_18028472.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_18281059</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_18281059.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_18352606</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_18352606.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_18421408</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_18421408.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_18700043</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_18700043.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_18727563</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_18727563.mp4"></video>
+    <div class="meta">BIRDFLOCK. 2 birds flying across a warm red-tinted sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_18824583</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_18824583.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_18890486</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_18890486.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19178759</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19178759.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19223140</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19223140.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19361291</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19361291.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19510448</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19510448.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_1960862</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_1960862.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19683567</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19683567.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19702595</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19702595.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19714772</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19714772.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky, at mid distance, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19768258</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19768258.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, close to camera, wings clearly visible, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19845278</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19845278.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_19920259</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_19920259.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20134295</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20134295.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20323203</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20323203.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20360484</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20360484.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20382769</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20382769.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20408040</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20408040.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20413201</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20413201.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20614269</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20614269.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20682356</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20682356.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20682899</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20682899.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20683460</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20683460.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20798300</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20798300.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20832929</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20832929.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20883114</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20883114.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_20981971</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_20981971.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_21319770</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_21319770.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a warm red-tinted sky above a dark horizon, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_21477004</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_21477004.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_21544069</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_21544069.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_21691863</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_21691863.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_21782207</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_21782207.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_21929040</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_21929040.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_22257911</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_22257911.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_22683126</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_22683126.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_22720925</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_22720925.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_22872899</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_22872899.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_22972302</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_22972302.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_23035779</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_23035779.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a soft pastel sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_23068593</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_23068593.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_23237939</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_23237939.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_23468142</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_23468142.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_23471906</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_23471906.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_23606140</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_23606140.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across a clear blue sky, close to camera, wings clearly visible, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_23694449</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_23694449.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_24374125</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_24374125.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_24753525</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_24753525.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_25655242</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_25655242.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_25800866</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_25800866.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_25904929</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_25904929.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_25994117</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_25994117.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_26159864</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_26159864.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_26287854</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_26287854.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_26331056</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_26331056.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_26412851</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_26412851.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_26631696</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_26631696.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_26661727</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_26661727.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_26846434</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_26846434.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_26953210</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_26953210.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27023796</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27023796.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27162890</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27162890.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27321575</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27321575.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27373839</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27373839.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27433436</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27433436.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27511932</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27511932.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27601457</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27601457.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27657955</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27657955.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27775376</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27775376.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27776343</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27776343.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky, at mid distance, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27831036</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27831036.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, close to camera, wings clearly visible, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_27926958</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_27926958.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28063110</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28063110.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28077187</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28077187.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across a clear blue sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28119343</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28119343.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28178642</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28178642.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a warm red-tinted sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28254073</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28254073.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28263258</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28263258.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28294620</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28294620.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28294621</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28294621.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28417040</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28417040.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28417948</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28417948.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28429437</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28429437.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28548794</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28548794.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28557170</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28557170.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28621378</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28621378.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, at mid distance, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28703843</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28703843.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28729596</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28729596.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across a clear blue sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28784668</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28784668.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_28915909</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_28915909.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, at mid distance, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_290608</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_290608.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_29080867</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_29080867.mp4"></video>
+    <div class="meta">BIRDFLOCK. 3 birds flying across a clear blue sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_29277430</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_29277430.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across an overcast grey sky, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_29649603</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_29649603.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a dark night sky, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_29697813</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_29697813.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a warm red-tinted sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_29704021</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_29704021.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across an overcast grey sky, close to camera, wings clearly visible, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_29782015</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_29782015.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_29860142</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_29860142.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_29997157</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_29997157.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30236317</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30236317.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30236321</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30236321.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30241670</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30241670.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_3035666</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_3035666.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30442660</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30442660.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30614421</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30614421.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_3062903</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_3062903.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across an overcast grey sky, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30648526</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30648526.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30659274</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30659274.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, at mid distance, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30713498</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30713498.mp4"></video>
+    <div class="meta">BIRDFLOCK. 2 birds flying across an overcast grey sky, close to camera, wings clearly visible, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30763924</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30763924.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky, at mid distance, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30775486</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30775486.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_30795993</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_30795993.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31058767</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31058767.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31071241</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31071241.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a warm red-tinted sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31078267</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31078267.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31100503</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31100503.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31132797</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31132797.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_312248</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_312248.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31277878</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31277878.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a golden sunset sky above a dark horizon, at mid distance, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31511859</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31511859.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31632603</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31632603.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31646261</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31646261.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31664309</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31664309.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31842708</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31842708.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across an overcast grey sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31897563</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31897563.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_31909167</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_31909167.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32138354</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32138354.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32161232</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32161232.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32169315</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32169315.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32352017</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32352017.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32410269</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32410269.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32499744</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32499744.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32587946</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32587946.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32694569</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32694569.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32873679</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32873679.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_3289232</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_3289232.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, at mid distance, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_32959805</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_32959805.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_3296600</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_3296600.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_33211019</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_33211019.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_33846133</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_33846133.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, close to camera, wings clearly visible, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34354920</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34354920.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34417161</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34417161.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34432069</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34432069.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34447410</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34447410.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34566851</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34566851.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34621071</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34621071.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34698300</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34698300.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34711709</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34711709.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, at mid distance, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34742770</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34742770.mp4"></video>
+    <div class="meta">BIRDFLOCK. 3 birds flying across a clear blue sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34918212</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34918212.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a warm red-tinted sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34931320</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34931320.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_34942550</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_34942550.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35032261</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35032261.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35046644</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35046644.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35046732</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35046732.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35077421</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35077421.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a soft pastel sky, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35282480</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35282480.mp4"></video>
+    <div class="meta">BIRDFLOCK. 3 birds flying across an overcast grey sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35286846</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35286846.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35328824</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35328824.mp4"></video>
+    <div class="meta">BIRDFLOCK. 3 birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35332302</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35332302.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35532648</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35532648.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35540234</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35540234.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35552257</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35552257.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35618541</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35618541.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35643062</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35643062.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35677425</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35677425.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35796202</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35796202.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35881361</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35881361.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35929842</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35929842.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_35946918</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_35946918.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36028272</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36028272.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_3607492</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_3607492.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36077228</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36077228.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across an overcast grey sky, at mid distance, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36171007</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36171007.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a warm red-tinted sky above a dark horizon, at mid distance, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36231078</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36231078.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36271670</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36271670.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36301571</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36301571.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36411171</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36411171.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36439642</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36439642.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36446008</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36446008.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a golden sunset sky, far away as small silhouettes, gliding rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36478772</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36478772.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36597738</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36597738.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36609290</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36609290.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36611913</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36611913.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, close to camera, wings clearly visible, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36634844</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36634844.mp4"></video>
+    <div class="meta">BIRDFLOCK. 3 birds flying across a clear blue sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36751938</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36751938.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36785525</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36785525.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across a clear blue sky, far away as small silhouettes, gliding to the left. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_3691537</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_3691537.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_36926747</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_36926747.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_37332713</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_37332713.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a dark night sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_3737057</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_3737057.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky above a dark horizon, far away as small silhouettes, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_37480651</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_37480651.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across a clear blue sky, at mid distance, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_37801201</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_37801201.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38068332</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38068332.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across an overcast grey sky, at mid distance, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38101141</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38101141.mp4"></video>
+    <div class="meta">BIRDFLOCK. 4 birds flying across an overcast grey sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38273089</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38273089.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across an overcast grey sky, close to camera, wings clearly visible, gliding to the left and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38411726</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38411726.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_3846867</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_3846867.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38499101</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38499101.mp4"></video>
+    <div class="meta">BIRDFLOCK. a small flock of birds flying across an overcast grey sky above a dark horizon, close to camera, wings clearly visible, gliding descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38609567</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38609567.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a clear blue sky, at mid distance, gliding to the right. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38614765</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38614765.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38767854</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38767854.mp4"></video>
+    <div class="meta">BIRDFLOCK. a single bird flying across a clear blue sky, far away as small silhouettes, gliding to the left and rising. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_38859212</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_38859212.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_39057264</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_39057264.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky above a dark horizon, at mid distance, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_39134729</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_39134729.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across an overcast grey sky, at mid distance, gliding to the right and descending. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+  <div class="card">
+    <h2>pexels_391921</h2>
+    <video controls loop muted preload="none" poster="" src="compare/pairs_side_by_side/pexels_391921.mp4"></video>
+    <div class="meta">BIRDFLOCK. a large flock of birds flying across a soft pastel sky above a dark horizon, far away as small silhouettes, circling and hovering in place. The birds move naturally while the background stays unchanged, cinematic footage.</div>
+  </div>
+</div>
+
+<h2 style="margin-top:32px">Remaining 430 pairs (open to play)</h2>
+<ul class="rest">
+<li><a href="compare/pairs_side_by_side/pexels_39422768.mp4">pexels_39422768</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_39432605.mp4">pexels_39432605</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_39478136.mp4">pexels_39478136</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_39595045.mp4">pexels_39595045</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_39738336.mp4">pexels_39738336</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_39851830.mp4">pexels_39851830</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_39854828.mp4">pexels_39854828</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_39977009.mp4">pexels_39977009</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_40001470.mp4">pexels_40001470</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4044339.mp4">pexels_4044339</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_40654418.mp4">pexels_40654418</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_40716791.mp4">pexels_40716791</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_40798630.mp4">pexels_40798630</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_41085913.mp4">pexels_41085913</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4179813.mp4">pexels_4179813</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_41820443.mp4">pexels_41820443</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_41860984.mp4">pexels_41860984</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_42295644.mp4">pexels_42295644</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_42381169.mp4">pexels_42381169</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_42445892.mp4">pexels_42445892</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_42538192.mp4">pexels_42538192</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_42813725.mp4">pexels_42813725</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_42954544.mp4">pexels_42954544</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_43175258.mp4">pexels_43175258</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_43219557.mp4">pexels_43219557</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_43405812.mp4">pexels_43405812</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_43469426.mp4">pexels_43469426</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_43773380.mp4">pexels_43773380</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_43851486.mp4">pexels_43851486</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44068143.mp4">pexels_44068143</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44198626.mp4">pexels_44198626</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44338931.mp4">pexels_44338931</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4438487.mp4">pexels_4438487</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44482279.mp4">pexels_44482279</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44484220.mp4">pexels_44484220</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44492853.mp4">pexels_44492853</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44506930.mp4">pexels_44506930</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44528331.mp4">pexels_44528331</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4461789.mp4">pexels_4461789</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4465247.mp4">pexels_4465247</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44721674.mp4">pexels_44721674</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44770863.mp4">pexels_44770863</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44785544.mp4">pexels_44785544</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44857520.mp4">pexels_44857520</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44912278.mp4">pexels_44912278</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4494534.mp4">pexels_4494534</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_44981735.mp4">pexels_44981735</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_45373560.mp4">pexels_45373560</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_45467067.mp4">pexels_45467067</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46121438.mp4">pexels_46121438</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46155350.mp4">pexels_46155350</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46281519.mp4">pexels_46281519</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46284445.mp4">pexels_46284445</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4629682.mp4">pexels_4629682</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46310179.mp4">pexels_46310179</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46759159.mp4">pexels_46759159</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46783235.mp4">pexels_46783235</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46942605.mp4">pexels_46942605</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_46973358.mp4">pexels_46973358</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_47132482.mp4">pexels_47132482</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_47299678.mp4">pexels_47299678</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_47988138.mp4">pexels_47988138</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_48067124.mp4">pexels_48067124</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_48222258.mp4">pexels_48222258</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_48710159.mp4">pexels_48710159</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4884713.mp4">pexels_4884713</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4885541.mp4">pexels_4885541</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_48898492.mp4">pexels_48898492</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_49087755.mp4">pexels_49087755</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4916727.mp4">pexels_4916727</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_49194036.mp4">pexels_49194036</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_49328241.mp4">pexels_49328241</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_49398400.mp4">pexels_49398400</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4949824.mp4">pexels_4949824</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_49501273.mp4">pexels_49501273</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_4952194.mp4">pexels_4952194</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_49626079.mp4">pexels_49626079</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_49741623.mp4">pexels_49741623</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_49847804.mp4">pexels_49847804</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_50198387.mp4">pexels_50198387</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_50255911.mp4">pexels_50255911</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_5055104.mp4">pexels_5055104</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_5057337.mp4">pexels_5057337</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_50731932.mp4">pexels_50731932</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_51196790.mp4">pexels_51196790</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_51281001.mp4">pexels_51281001</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_51474987.mp4">pexels_51474987</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_51542788.mp4">pexels_51542788</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_51719434.mp4">pexels_51719434</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_51741441.mp4">pexels_51741441</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_51863700.mp4">pexels_51863700</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_52274091.mp4">pexels_52274091</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_52410201.mp4">pexels_52410201</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_52457744.mp4">pexels_52457744</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_52525065.mp4">pexels_52525065</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_52648995.mp4">pexels_52648995</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_52839155.mp4">pexels_52839155</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53149008.mp4">pexels_53149008</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53274377.mp4">pexels_53274377</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53288655.mp4">pexels_53288655</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53603057.mp4">pexels_53603057</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53638561.mp4">pexels_53638561</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53654068.mp4">pexels_53654068</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53901577.mp4">pexels_53901577</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_539194.mp4">pexels_539194</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53986601.mp4">pexels_53986601</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_53998785.mp4">pexels_53998785</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_54076873.mp4">pexels_54076873</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_54187027.mp4">pexels_54187027</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_54252239.mp4">pexels_54252239</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_5434557.mp4">pexels_5434557</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_54382217.mp4">pexels_54382217</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_54756774.mp4">pexels_54756774</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_54832355.mp4">pexels_54832355</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_55012908.mp4">pexels_55012908</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_55029447.mp4">pexels_55029447</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_55147089.mp4">pexels_55147089</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_55423638.mp4">pexels_55423638</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_55477056.mp4">pexels_55477056</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_56000639.mp4">pexels_56000639</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_56215522.mp4">pexels_56215522</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_56420186.mp4">pexels_56420186</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_56567046.mp4">pexels_56567046</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_56712471.mp4">pexels_56712471</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_56780018.mp4">pexels_56780018</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_56933263.mp4">pexels_56933263</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_5704227.mp4">pexels_5704227</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57063942.mp4">pexels_57063942</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_570831.mp4">pexels_570831</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57103686.mp4">pexels_57103686</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57160773.mp4">pexels_57160773</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57243299.mp4">pexels_57243299</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57308419.mp4">pexels_57308419</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57406203.mp4">pexels_57406203</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57421721.mp4">pexels_57421721</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57425027.mp4">pexels_57425027</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57471277.mp4">pexels_57471277</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57536016.mp4">pexels_57536016</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57600602.mp4">pexels_57600602</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57696995.mp4">pexels_57696995</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57713036.mp4">pexels_57713036</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57883918.mp4">pexels_57883918</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_57907814.mp4">pexels_57907814</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_58383034.mp4">pexels_58383034</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_5854976.mp4">pexels_5854976</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_58753919.mp4">pexels_58753919</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_58846472.mp4">pexels_58846472</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_58870093.mp4">pexels_58870093</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_58929001.mp4">pexels_58929001</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_58949379.mp4">pexels_58949379</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_58962575.mp4">pexels_58962575</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_58988633.mp4">pexels_58988633</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59025097.mp4">pexels_59025097</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59092093.mp4">pexels_59092093</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59149449.mp4">pexels_59149449</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59314646.mp4">pexels_59314646</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59357339.mp4">pexels_59357339</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59510690.mp4">pexels_59510690</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59546563.mp4">pexels_59546563</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59584162.mp4">pexels_59584162</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_5973753.mp4">pexels_5973753</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_59789085.mp4">pexels_59789085</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_60108090.mp4">pexels_60108090</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_60322422.mp4">pexels_60322422</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_6047752.mp4">pexels_6047752</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_60739862.mp4">pexels_60739862</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_60813570.mp4">pexels_60813570</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_61060146.mp4">pexels_61060146</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_61296943.mp4">pexels_61296943</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_61374949.mp4">pexels_61374949</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_61499020.mp4">pexels_61499020</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_61524780.mp4">pexels_61524780</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_61628246.mp4">pexels_61628246</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_6179806.mp4">pexels_6179806</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_6183937.mp4">pexels_6183937</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_6195581.mp4">pexels_6195581</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_62077957.mp4">pexels_62077957</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_62504755.mp4">pexels_62504755</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_62598045.mp4">pexels_62598045</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_62629326.mp4">pexels_62629326</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_62636577.mp4">pexels_62636577</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_62652524.mp4">pexels_62652524</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_62719883.mp4">pexels_62719883</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_62874554.mp4">pexels_62874554</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_63099233.mp4">pexels_63099233</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_63146362.mp4">pexels_63146362</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_63379814.mp4">pexels_63379814</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_63698808.mp4">pexels_63698808</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64121325.mp4">pexels_64121325</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64192732.mp4">pexels_64192732</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64218150.mp4">pexels_64218150</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64313490.mp4">pexels_64313490</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64580135.mp4">pexels_64580135</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64666764.mp4">pexels_64666764</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64670310.mp4">pexels_64670310</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64701576.mp4">pexels_64701576</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64719771.mp4">pexels_64719771</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64758327.mp4">pexels_64758327</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_64772322.mp4">pexels_64772322</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_65162049.mp4">pexels_65162049</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_65217405.mp4">pexels_65217405</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_6524430.mp4">pexels_6524430</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_653896.mp4">pexels_653896</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_65601983.mp4">pexels_65601983</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_65955425.mp4">pexels_65955425</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66026801.mp4">pexels_66026801</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66056728.mp4">pexels_66056728</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66232582.mp4">pexels_66232582</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66281852.mp4">pexels_66281852</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66301906.mp4">pexels_66301906</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66599809.mp4">pexels_66599809</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66779706.mp4">pexels_66779706</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66883640.mp4">pexels_66883640</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_66899142.mp4">pexels_66899142</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_67199777.mp4">pexels_67199777</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_67271726.mp4">pexels_67271726</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_6730104.mp4">pexels_6730104</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_67412469.mp4">pexels_67412469</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_67542648.mp4">pexels_67542648</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_67578355.mp4">pexels_67578355</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_68276012.mp4">pexels_68276012</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_68374525.mp4">pexels_68374525</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_68391168.mp4">pexels_68391168</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_68523408.mp4">pexels_68523408</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_68602515.mp4">pexels_68602515</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_68759019.mp4">pexels_68759019</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_6960646.mp4">pexels_6960646</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_69698557.mp4">pexels_69698557</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_69720363.mp4">pexels_69720363</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_69768701.mp4">pexels_69768701</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70018713.mp4">pexels_70018713</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70070339.mp4">pexels_70070339</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70142750.mp4">pexels_70142750</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70305046.mp4">pexels_70305046</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70577403.mp4">pexels_70577403</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70757955.mp4">pexels_70757955</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70774164.mp4">pexels_70774164</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70787536.mp4">pexels_70787536</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_70842589.mp4">pexels_70842589</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_71105422.mp4">pexels_71105422</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_71250016.mp4">pexels_71250016</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_71279549.mp4">pexels_71279549</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_71374739.mp4">pexels_71374739</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_71518243.mp4">pexels_71518243</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_71695689.mp4">pexels_71695689</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_72228647.mp4">pexels_72228647</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_7232126.mp4">pexels_7232126</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_7234209.mp4">pexels_7234209</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_723487.mp4">pexels_723487</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_72396361.mp4">pexels_72396361</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_72406286.mp4">pexels_72406286</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_72685094.mp4">pexels_72685094</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_72969290.mp4">pexels_72969290</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_7297824.mp4">pexels_7297824</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_73065659.mp4">pexels_73065659</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_7316158.mp4">pexels_7316158</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_73216813.mp4">pexels_73216813</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_73283905.mp4">pexels_73283905</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_73524321.mp4">pexels_73524321</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_73595306.mp4">pexels_73595306</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_73721245.mp4">pexels_73721245</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_73761672.mp4">pexels_73761672</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_74709051.mp4">pexels_74709051</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_75152381.mp4">pexels_75152381</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_75161584.mp4">pexels_75161584</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_75352400.mp4">pexels_75352400</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_75397064.mp4">pexels_75397064</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_75528596.mp4">pexels_75528596</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_75764610.mp4">pexels_75764610</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_76047363.mp4">pexels_76047363</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_76148153.mp4">pexels_76148153</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_76367676.mp4">pexels_76367676</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_76636551.mp4">pexels_76636551</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_76779352.mp4">pexels_76779352</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_769034.mp4">pexels_769034</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_76918748.mp4">pexels_76918748</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_770140.mp4">pexels_770140</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_77153951.mp4">pexels_77153951</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_77172612.mp4">pexels_77172612</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_77196793.mp4">pexels_77196793</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_77617928.mp4">pexels_77617928</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_77876788.mp4">pexels_77876788</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_77908875.mp4">pexels_77908875</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_78185257.mp4">pexels_78185257</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_78251773.mp4">pexels_78251773</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_78458868.mp4">pexels_78458868</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_78463632.mp4">pexels_78463632</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_78483886.mp4">pexels_78483886</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_78783615.mp4">pexels_78783615</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_7921300.mp4">pexels_7921300</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_79474448.mp4">pexels_79474448</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_79570873.mp4">pexels_79570873</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_79640996.mp4">pexels_79640996</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_79649012.mp4">pexels_79649012</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_79770761.mp4">pexels_79770761</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_79914094.mp4">pexels_79914094</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_79930406.mp4">pexels_79930406</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_79987093.mp4">pexels_79987093</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_80074247.mp4">pexels_80074247</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_8029629.mp4">pexels_8029629</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_80426673.mp4">pexels_80426673</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_80495925.mp4">pexels_80495925</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_80510596.mp4">pexels_80510596</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_80745122.mp4">pexels_80745122</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_80791202.mp4">pexels_80791202</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_80939554.mp4">pexels_80939554</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_80969744.mp4">pexels_80969744</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_8103920.mp4">pexels_8103920</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_81154992.mp4">pexels_81154992</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_81189638.mp4">pexels_81189638</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_81310611.mp4">pexels_81310611</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_8139804.mp4">pexels_8139804</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_81838086.mp4">pexels_81838086</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_82084286.mp4">pexels_82084286</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_82413652.mp4">pexels_82413652</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_82519539.mp4">pexels_82519539</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_82891946.mp4">pexels_82891946</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_82933449.mp4">pexels_82933449</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_83257863.mp4">pexels_83257863</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_83323157.mp4">pexels_83323157</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_83624106.mp4">pexels_83624106</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84149230.mp4">pexels_84149230</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84198747.mp4">pexels_84198747</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84278910.mp4">pexels_84278910</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_8432140.mp4">pexels_8432140</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84333010.mp4">pexels_84333010</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84338798.mp4">pexels_84338798</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84419587.mp4">pexels_84419587</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84609515.mp4">pexels_84609515</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84629843.mp4">pexels_84629843</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84812605.mp4">pexels_84812605</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84897111.mp4">pexels_84897111</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84900118.mp4">pexels_84900118</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84962818.mp4">pexels_84962818</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_84997192.mp4">pexels_84997192</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_85174210.mp4">pexels_85174210</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_85232743.mp4">pexels_85232743</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_85362929.mp4">pexels_85362929</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_85496886.mp4">pexels_85496886</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_8552443.mp4">pexels_8552443</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_86012767.mp4">pexels_86012767</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_86063946.mp4">pexels_86063946</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_86365791.mp4">pexels_86365791</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_86638521.mp4">pexels_86638521</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_86706773.mp4">pexels_86706773</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_86886412.mp4">pexels_86886412</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_87034211.mp4">pexels_87034211</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_87203806.mp4">pexels_87203806</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_87642707.mp4">pexels_87642707</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_87708299.mp4">pexels_87708299</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_87725742.mp4">pexels_87725742</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_87763595.mp4">pexels_87763595</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_87838955.mp4">pexels_87838955</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_87986987.mp4">pexels_87986987</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88024773.mp4">pexels_88024773</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88211079.mp4">pexels_88211079</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88234440.mp4">pexels_88234440</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_8824697.mp4">pexels_8824697</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88247510.mp4">pexels_88247510</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88339307.mp4">pexels_88339307</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88527824.mp4">pexels_88527824</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88617415.mp4">pexels_88617415</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88834144.mp4">pexels_88834144</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_88989436.mp4">pexels_88989436</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89187623.mp4">pexels_89187623</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89252456.mp4">pexels_89252456</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89357249.mp4">pexels_89357249</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89402231.mp4">pexels_89402231</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89411983.mp4">pexels_89411983</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89594230.mp4">pexels_89594230</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89632444.mp4">pexels_89632444</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89635929.mp4">pexels_89635929</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_89783223.mp4">pexels_89783223</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_90368767.mp4">pexels_90368767</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_90387868.mp4">pexels_90387868</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_90420090.mp4">pexels_90420090</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_90958009.mp4">pexels_90958009</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91002095.mp4">pexels_91002095</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91056189.mp4">pexels_91056189</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91201721.mp4">pexels_91201721</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91218983.mp4">pexels_91218983</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_9126818.mp4">pexels_9126818</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91309592.mp4">pexels_91309592</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91362788.mp4">pexels_91362788</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91413854.mp4">pexels_91413854</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91719561.mp4">pexels_91719561</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91838284.mp4">pexels_91838284</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_91886096.mp4">pexels_91886096</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_92127286.mp4">pexels_92127286</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_92182452.mp4">pexels_92182452</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_922117.mp4">pexels_922117</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_92584234.mp4">pexels_92584234</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_92771205.mp4">pexels_92771205</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_92834978.mp4">pexels_92834978</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_92963074.mp4">pexels_92963074</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_93009365.mp4">pexels_93009365</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_93118304.mp4">pexels_93118304</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_9316044.mp4">pexels_9316044</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_93303330.mp4">pexels_93303330</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_9351653.mp4">pexels_9351653</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_93785888.mp4">pexels_93785888</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_93862491.mp4">pexels_93862491</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_93924108.mp4">pexels_93924108</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_94715541.mp4">pexels_94715541</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_94832702.mp4">pexels_94832702</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_94930087.mp4">pexels_94930087</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_94968258.mp4">pexels_94968258</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_9521817.mp4">pexels_9521817</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_95302999.mp4">pexels_95302999</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_95893994.mp4">pexels_95893994</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_96008774.mp4">pexels_96008774</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_96342417.mp4">pexels_96342417</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_96483950.mp4">pexels_96483950</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_96756616.mp4">pexels_96756616</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_96798518.mp4">pexels_96798518</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_96855823.mp4">pexels_96855823</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_97221401.mp4">pexels_97221401</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_97368927.mp4">pexels_97368927</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_97769031.mp4">pexels_97769031</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_9796398.mp4">pexels_9796398</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_98140370.mp4">pexels_98140370</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_98642421.mp4">pexels_98642421</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_99330514.mp4">pexels_99330514</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_99375977.mp4">pexels_99375977</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_99500567.mp4">pexels_99500567</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_99588499.mp4">pexels_99588499</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_99627117.mp4">pexels_99627117</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_99641192.mp4">pexels_99641192</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_99926563.mp4">pexels_99926563</a></li>
+<li><a href="compare/pairs_side_by_side/pexels_99989457.mp4">pexels_99989457</a></li>
+</ul>
+</body>
+</html>
